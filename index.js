@@ -9,14 +9,18 @@ function Phrase(content) {
     this.content = content;
     
     this.processedContent = function processedContent() {
-        return this.content.toLowerCase();
+        return this.letters().toLowerCase();
     }
 
     this.palindrome = function palindrome() {
         return this.processedContent() === this.processedContent().reverse();
     }
 
-    this.louder = function () {
+    this.louder = function louder() {
         return this.content.toUpperCase();
+    }
+
+    this.letters = function letters() {
+        return (this.content.match(/[a-z]/gi) || []).join("");
     }
 }
